@@ -7,7 +7,6 @@ import { PreloadAllModules, RouterModule } from '@angular/router';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { ArticulosFamiliasComponent } from './components/articulos-familias/articulos-familias.component';
 import { MenuComponent } from './components/menu/menu.component';
-import { HttpClientModule } from '@angular/common/http';
 import { APP_BASE_HREF } from '@angular/common';
 import { ArticulosComponent } from './components/articulos/articulos.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -18,6 +17,8 @@ import {
   NgbModalModule,
 } from '@ng-bootstrap/ng-bootstrap';
 import { ModalDialogComponent } from './components/modal-dialog/modal-dialog.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MyInterceptor } from './shared/my-interceptor';
 
 @NgModule({
   imports: [
@@ -43,6 +44,10 @@ import { ModalDialogComponent } from './components/modal-dialog/modal-dialog.com
     MenuComponent,
     ArticulosComponent,
     ModalDialogComponent,
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true },
+    { provide: APP_BASE_HREF, useValue: '/' },
   ],
   bootstrap: [AppComponent],
 })

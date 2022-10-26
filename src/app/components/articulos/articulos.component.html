@@ -1,6 +1,6 @@
-<div class="tituloPagina">
+<h3>
   {{ Titulo }} <small>{{ TituloAccionABMC[AccionABMC] }}</small>
-</div>
+</h3>
 
 <!-- Formulario Filtro de busqueda, se ve cuando la accion es Listado(busqueda/listado)-->
 <form name="FormBusqueda" [formGroup]="FormBusqueda" *ngIf="AccionABMC == 'L'">
@@ -60,7 +60,6 @@
         <th class="text-center">Familia</th>
         <th class="text-center">Fecha de Alta</th>
         <th class="text-center">Activo</th>
-        <th class="text-center">Familia</th>
         <th class="text-center text-nowrap">Acciones</th>
       </tr>
     </thead>

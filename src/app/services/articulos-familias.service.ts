@@ -10,8 +10,7 @@ import { environment } from '../environments/environment';
 export class ArticulosFamiliasService {
   resourceUrl: string;
   constructor(private httpClient: HttpClient) {
-    this.resourceUrl =
-      environment.ConexionWebApiProxy + 'articulosfamilias' + '/';
+    this.resourceUrl = 'https://pav2.azurewebsites.net/api/ArticulosFamilias/';
   }
 
   get() {
